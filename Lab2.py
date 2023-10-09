@@ -8,6 +8,8 @@ def fibonacci_sum():
     result = fibonacci_sum(n)
     print(f"Сумма чисел Фибоначчи до {n} равна {result}")
 
+# hello gays
+
 def whatArg(x):
     t = type(x)
     if(t is tuple):
