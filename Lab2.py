@@ -15,7 +15,8 @@ def whatArg(x):
         #for item in x:
         #    if isinstance(item, str):
         #        total_length += len(item.split())
-        print(sum([len(word) for word in x])) 
+        print(sum([len(word) for word in x]))
+        #ghrtghtrgbntrgntrgngtrnr 
                
     if(t is list):
         letter_count =0
