@@ -3,8 +3,7 @@ def fibonacci_sum(n):
     total = 0
     
     while a <= n:
-        if a % 2 == 0:
-            total += a
+        total += a
         a, b = b, a + b
         
     return total
