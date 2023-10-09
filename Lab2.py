@@ -1,12 +1,11 @@
-#def CountFibonachi():
-#   a = int(input("Введите число для расчета фибоначи"))
-def fibonacci_sum():
-    fib_sequence = [0, 1]
-    while fib_sequence[-1] + fib_sequence[-2] < n:
-        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-    n = int(input("Введите число: "))
-    result = fibonacci_sum(n)
-    print(f"Сумма чисел Фибоначчи до {n} равна {result}")
+def fibonacci_sum_recursive(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci_sum_recursive(n - 1) + fibonacci_sum_recursive(n - 2)
+
 
 
 def whatArg(x):
@@ -90,7 +89,9 @@ while True:
     choice = input("Выберите пункт меню: ")
 
     if choice == '1':
-        fibonacci_sum()
+        n = int(input("Введите число: "))
+        result = fibonacci_sum_recursive(n)
+        print(f"Сумма чисел Фибоначчи до {n} равна {result}")
     elif choice == '2':
         whatArg(("e", "e", "r"))
         whatArg(['qwerty', '12', '233'])
