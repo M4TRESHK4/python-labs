@@ -1,11 +1,13 @@
-def fibonacci_sum_recursive(n):
-    if n <= 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fibonacci_sum_recursive(n - 1) + fibonacci_sum_recursive(n - 2)
-
+def fibonacci_sum(n):
+    a, b = 0, 1
+    total = 0
+    
+    while a <= n:
+        if a % 2 == 0:
+            total += a
+        a, b = b, a + b
+        
+    return total
 
 
 def whatArg(x):
@@ -89,9 +91,9 @@ while True:
     choice = input("Выберите пункт меню: ")
 
     if choice == '1':
-        n = int(input("Введите число: "))
-        result = fibonacci_sum_recursive(n)
-        print(f"Сумма чисел Фибоначчи до {n} равна {result}")
+       n = int(input("Введите число: "))
+       result = fibonacci_sum(n)
+       print(f"Сумма чисел Фибоначчи до {n} равна {result}")
     elif choice == '2':
         whatArg(("e", "e", "r"))
         whatArg(['qwerty', '12', '233'])
