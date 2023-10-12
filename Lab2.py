@@ -12,12 +12,8 @@ def fibonacci_sum(n):
 def whatArg(x):
     t = type(x)
     if(t is tuple):
-        #total_length = 0
-        #for item in x:
-        #    if isinstance(item, str):
-        #        total_length += len(item.split())
+        print('длина всех букв кортежа: ')
         print(sum([len(word) for word in x]))
-        #ghrtghtrgbntrgntrgngtrnr 
                
     if(t is list):
         letter_count =0
