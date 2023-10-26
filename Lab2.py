@@ -42,7 +42,6 @@ def matrix():
     print('Начальная матрица:')
     for row in matrix:
             print(row)
-    # Флаг, который будет служить индикатором наличия положительных элементов в строке
     has_positive_element = False
 
     # Проходим по каждой строке матрицы
@@ -52,7 +51,7 @@ def matrix():
                 has_positive_element = True
                 break  # Если есть положительный элемент, выходим из цикла
 
-        # Если в строке есть хотя бы один положительный элемент, меняем знаки всех элементов
+
         if has_positive_element:
             for i in range(len(row)):
                 row[i] = -row[i]
