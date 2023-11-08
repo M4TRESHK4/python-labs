@@ -44,4 +44,24 @@ def task2():
             f.write(translator_dict[line_data[2]] + ' ' + " ".join(line_data[1:]) + u'\n') # тут буква u для того же
             
 def task3():
+
+    subjects ={}
+
+    with open("task3.txt", 'a'):
+        pass
+
+    with open("task3.txt", 'r') as f:
+        lines = f.readlines()
+
+    for line in lines:
+        subject_info = line.split(':')  
+        subject_name = subject_info[0]
+        subjects[subject_name] = [int(subject_info[1]), int(subject_info[2]), int(subject_info[3]), 0]
+        subjects[subject_name][3] = sum(subjects[subject_name])
+
+    for k, v in subjects.items():
+        print(f"Предмет: {k}, Лекций: {v[0]}, Практических: {v[1]}, Лабораторных: {v[2]}, Всего - {v[3]}")
+task1()
+task2()
+task3()
     
