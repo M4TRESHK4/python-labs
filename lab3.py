@@ -42,6 +42,9 @@ def task2():
             line_data = line.split()
 
             f.write(translator_dict[line_data[2]] + ' ' + " ".join(line_data[1:]) + u'\n') # тут буква u для того же
+
+        print('2 задание выполнено, смотреть файл testTask2Result.txt')
+
             
 def task3():
 
