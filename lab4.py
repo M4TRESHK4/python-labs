@@ -131,3 +131,44 @@ if __name__ == "__main__":
         f"The cheapest transportation: {cheapest.move()}. Cost: {cheapest.transportation_cost(distance)} rubles."
     ]
     write_to_file("transportation_info.txt", data_to_write)
+
+class Book:
+    # Метод класса для создания экземпляра книги из строки
+    @classmethod
+    def from_string(cls, book_string):
+        title, author, year = book_string.split(',')
+        return cls(title.strip(), author.strip(), int(year.strip()))
+
+    def __init__(self, title, author, year):
+        self.title = title
+        self.author = author
+        self.year = year
+
+    # Метод экземпляра класса для вывода информации о книге
+    def display_info(self):
+        print(f"Title: {self.title}, Author: {self.author}, Year: {self.year}")
+
+    # Статический метод для проверки, является ли год выпуска книги високосным
+    @staticmethod
+    def is_leap_year(year):
+        return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+
+    # Метод экземпляра класса для проверки, является ли год выпуска книги високосным
+    def is_leap_year_instance(self):
+        return self.is_leap_year(self.year)
+
+
+# Создаем экземпляр книги с использованием метода класса
+book_str = "The Great Gatsby, F. Scott Fitzgerald, 1925"
+book1 = Book.from_string(book_str)
+
+# Выводим информацию о книге
+book1.display_info()
+
+# Проверяем, является ли год выпуска книги високосным с использованием метода экземпляра
+print(f"Is leap year: {book1.is_leap_year_instance()}")
+
+# Используем статический метод для проверки високосного года
+year_to_check = 2024
+print(f"Is {year_to_check} a leap year? {Book.is_leap_year(year_to_check)}")
+
