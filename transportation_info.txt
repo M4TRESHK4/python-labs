@@ -1,0 +1,2 @@
+The fastest transportation: Flying. Time: 0.625 hours.
+The cheapest transportation: Traveling by train. Cost: 2500 rubles.
