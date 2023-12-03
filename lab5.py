@@ -82,3 +82,37 @@ def task3():
 
 def f(t):
     return np.log(np.abs(1.3 - t)) - np.exp(t)
+
+def task4():
+    # s = ln|1,3 - t|-e^t, 2<=t<=3, dt = 0,03
+    arguments = np.arange(2, 3, 0.03)
+    print(arguments)
+    list_of_values = []
+    count = 0
+
+    for i in arguments:
+        list_of_values.append(f(i))
+        print(f"Argument: {i}, Value: {f(i)}")
+        count += 1
+    values = np.array(list_of_values)
+    print(f"Max: {values.max()}, Min : {values.min()} Mean: {values.sum()/count} Amount of elements: {count}")
+    mean_line = (values.sum()/count) * np.ones(values.size)
+    ppt.plot(arguments, values)
+    ppt.ylabel("Ось Y: f(x)")
+    ppt.xlabel("Ось X")
+    ppt.plot(arguments, mean_line)
+    ppt.show()
+
+
+def z(choice, x, y):
+    match choice:
+        case 1:
+            return np.power(x, 0.25) + np.power(y, 0.25)
+        case 2:
+            return x * x - y * y
+        case 3:
+            return 2 * x + 3 * y
+        case 4:
+            return x * x + y * y
+        case 5:
+            return 2 + 2 * x + 2 * y - x * x - y * y
