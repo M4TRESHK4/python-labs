@@ -116,3 +116,46 @@ def z(choice, x, y):
             return x * x + y * y
         case 5:
             return 2 + 2 * x + 2 * y - x * x - y * y
+        
+def task5():
+    arg = np.arange(2, 5, 0.5)
+    arg1 = np.arange(0, 3, 0.5)
+    choice = -1
+    while choice != 0:
+        print("\nВыберите:\n1.z = x^(2.5) + y^(2.5)"
+              "\n2.z = x^2 - y^2"
+              "\n3.z = 2x + 3y"
+              "\n4.z = x^2 + y^2"
+              "\n5.z = 2 + 2x + 2y - x^2 - y^2")
+        while choice < 0 or choice > 5:
+            choice = check_input("\nВаш выбор - ")
+    list_of_values = []
+
+    for i in arg:
+        for j in arg1:
+            list_of_values.append(z(choice, i, j))
+    values = np.array(list_of_values)
+
+
+
+def menu():
+    choice1 = -1
+    while choice1 != 0:
+        print("\nВыберите:\n1.Task 1\n2.Task 2\n3.Task3\n4.Task4")
+        while choice1 < 0 or choice1 > 4:
+            choice1 = check_input("\nВаш выбор - ")
+        if choice1 == 1:
+            task1()
+            choice1 = -1
+        if choice1 == 2:
+            task2()
+            choice1 = -1
+        if choice1 == 3:
+            task3()
+            choice1 = -1
+        if choice1 == 4:
+            task4()
+            choice1 = -1
+
+
+menu()
