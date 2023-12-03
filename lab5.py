@@ -46,3 +46,39 @@ def task2():
     ax_2 = np.array(ax_2_list)
     y1 = np.add(ax_0, ax_1, ax_2)
     print(y1)
+
+def task3():
+    dataset = pnd.read_csv("test.csv", delimiter=",", nrows=1000)
+    # print(dataset.describe())
+    # print(dataset["LifeSquare"].mean)
+    if dataset.isnull().empty:
+        print("Данные не имеют пропусков")
+    else:
+        print("Данные имеют пропуски:")
+        print(dataset.isnull().sum())
+        fig, ax = ppt.subplots()
+        ppt.yscale(value='log')
+        #
+        ax.boxplot(dataset["Square"])
+        ppt.show()
+
+        dataset["Square"].plot(kind='hist')
+        ppt.show()
+        dataset = dataset.query("Square<100")
+        dataset = dataset.query("Square>10")
+        dataset = dataset.query("Rooms>0")
+        # фильтр по значению
+
+        fig, ax = ppt.subplots()
+        ax.boxplot(dataset["Square"])
+        ppt.show()
+
+        new_ds = dataset.interpolate(method='linear', limit_direction='forward')
+        print(new_ds.isnull().sum())
+        print("Пропущенные данные были заполнены!")
+
+        print(f"Количество квартир - {new_ds['Rooms'].value_counts()}")
+
+
+def f(t):
+    return np.log(np.abs(1.3 - t)) - np.exp(t)
